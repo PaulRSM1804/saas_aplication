@@ -1,0 +1,17 @@
+<div class="login-container">
+  <div class="login-card mat-elevation-z8">
+    <h2 class="mat-headline text-center">Login</h2>
+    <form (ngSubmit)="login()" class="login-form">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [(ngModel)]="email" name="email" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" [(ngModel)]="password" name="password" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" class="full-width">Login</button>
+    </form>
+    <p class="register-text">Aún no eres miembro? <a (click)="goToRegister()" class="register-link">Regístrate!</a></p>
+  </div>
+</div>

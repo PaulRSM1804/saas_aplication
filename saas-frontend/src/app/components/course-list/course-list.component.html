@@ -1,0 +1,46 @@
+<div class="course-list grid-container">
+  <div *ngFor="let course of courses" class="course-card mat-elevation-z4">
+    <img [src]="course.imageUrl" alt="{{ course.title }}" class="course-image">
+    <div class="course-content">
+      <h2 class="mat-headline">{{ course.title }}</h2>
+      <p class="mat-body-1">Creado por: {{ course.creatorName }}</p>
+      <p class="mat-body-2 mt-2">{{ course.description }}</p>
+      <div class="course-status flex items-center mt-2">
+        <span [ngClass]="{
+          'bg-green': course.status === 'ACTIVE',
+          'bg-red': course.status === 'INACTIVE',
+          'bg-blue': course.status === 'IN_CONSTRUCTION'
+        }" class="status-dot"></span>
+        <p class="mat-caption">{{ course.status }}</p>
+      </div>
+      <div class="mt-4 button-group">
+        <button 
+          *ngIf="currentUser?.userType !== 'CREATOR'" 
+          [disabled]="isSubscribed(course.id ?? 0)" 
+          mat-raised-button
+          [ngClass]="{
+            'mat-primary': !isSubscribed(course.id ?? 0),
+            'mat-accent': isSubscribed(course.id ?? 0)
+          }" 
+          (click)="course.id !== undefined ? subscribe(course.id) : null">
+          {{ isSubscribed(course.id ?? 0) ? 'Suscrito' : 'Suscribirse' }}
+        </button>
+        <button 
+          *ngIf="currentUser?.userType === 'CREATOR' || currentUser?.userType === 'ADMIN'"
+          mat-raised-button
+          color="warn"
+          (click)="course.id !== undefined ? deleteCourse(course.id) : null">
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alert Section -->
+  <div *ngIf="errorMessage" class="alert-container mat-elevation-z8">
+    {{ errorMessage }}
+    <button mat-icon-button (click)="errorMessage = null">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</div>

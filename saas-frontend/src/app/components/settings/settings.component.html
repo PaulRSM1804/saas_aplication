@@ -1,0 +1,32 @@
+<div class="settings-container">
+  <mat-card class="card-container">
+    <h2 class="mat-title text-center">Actualizar Datos</h2>
+    <form [formGroup]="settingsForm" (ngSubmit)="saveSettings()" class="space-y-4">
+      <div class="form-group">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" id="email" formControlName="email" required>
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" id="password" formControlName="password" required>
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>First Name</mat-label>
+          <input matInput type="text" id="firstName" formControlName="firstName" required>
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Last Name</mat-label>
+          <input matInput type="text" id="lastName" formControlName="lastName">
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary" type="submit" class="w-full">Guardar</button>
+    </form>
+  </mat-card>
+</div>

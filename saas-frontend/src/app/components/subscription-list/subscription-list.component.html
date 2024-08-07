@@ -1,0 +1,17 @@
+<div class="subscription-list">
+  <div *ngFor="let subscription of subscriptions" class="subscription-card">
+    <mat-card class="card">
+      <mat-card-header class="card-header">
+        <mat-card-title>{{ subscription.courseName }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="card-body">
+        <p><strong>Suscrito por:</strong> {{ subscription.consumerName }}</p>
+        <p><strong>Suscrito en:</strong> {{ subscription.subscriptionDate | date: 'medium' }}</p>
+        <p><strong>Nombre del Creador:</strong> {{ subscription.creatorName }}</p>
+        <button *ngIf="!isCreator" mat-raised-button color="warn" class="unsubscribe-button" (click)="deleteSubscription(subscription.id)">
+          Desuscribirse
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="rdf-container">
+  <h1 class="mat-headline text-center">Datos RDF Combinados</h1>
+  <div *ngIf="errorMessage" class="error-message mat-elevation-z3">
+    {{ errorMessage }}
+  </div>
+  <div *ngIf="rdfData" class="rdf-data mat-elevation-z3">
+    <pre>{{ rdfData }}</pre>
+    <div class="text-right mt-4">
+      <button mat-raised-button color="primary" (click)="exportRDF()">Exportar RDF</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+  <h1 class="title">Crear Curso</h1>
+  <form [formGroup]="courseForm" (ngSubmit)="onSubmit()" class="form">
+    <div *ngIf="errorMessage" class="alert error-alert">
+      {{ errorMessage }}
+    </div>
+    <mat-card class="form-card">
+      <mat-card-content>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Titulo del Curso</mat-label>
+          <input matInput type="text" id="title" formControlName="title" required>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Descripcion</mat-label>
+          <textarea matInput id="description" formControlName="description" required></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Estado de Creacion</mat-label>
+          <mat-select id="status" formControlName="status" required>
+            <mat-option value="ACTIVE">Active</mat-option>
+            <mat-option value="IN_CONSTRUCTION">In Construction</mat-option>
+            <mat-option value="INACTIVE">Inactive</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="form-group full-width">
+          <label for="imageUrl" class="block text-gray-700 font-semibold mb-2">Seleccionar imagen</label>
+          <input type="file" id="imageUrl" (change)="onFileSelected($event)" class="file-input">
+        </div>
+        <div class="button-group">
+          <button mat-raised-button type="button" color="warn" (click)="onCancel()">Cancelar</button>
+          <button mat-raised-button type="submit" color="primary" [disabled]="!courseForm.valid">Enviar</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</div>

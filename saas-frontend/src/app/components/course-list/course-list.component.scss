@@ -1,0 +1,80 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+  
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .course-card {
+    background: #fff;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  
+    .course-image {
+      width: 100%;
+      height: 12rem;
+      object-fit: cover;
+    }
+  
+    .course-content {
+      padding: 1rem;
+    }
+  
+    .course-status {
+      display: flex;
+      align-items: center;
+      margin-top: 0.5rem;
+  
+      .status-dot {
+        display: inline-block;
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+      }
+  
+      .bg-green {
+        background-color: #4caf50;
+      }
+  
+      .bg-red {
+        background-color: #f44336;
+      }
+  
+      .bg-blue {
+        background-color: #2196f3;
+      }
+    }
+  
+    .button-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+  }
+  
+  .alert-container {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    background: #f44336;
+    color: white;
+    padding: 16px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .alert-container mat-icon {
+    margin-left: 8px;
+    cursor: pointer;
+  }
+  

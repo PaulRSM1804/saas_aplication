@@ -1,0 +1,18 @@
+<div class="admin-course-approval">
+  <h2>Cursos Pendientes de Aprobación</h2>
+  <div *ngIf="pendingCourses.length === 0" class="no-courses">No hay cursos pendientes de aprobación.</div>
+  <div class="course-grid">
+    <div *ngFor="let course of pendingCourses" class="course-card">
+      <img [src]="course.imageUrl" alt="{{ course.title }}" class="course-image">
+      <div class="course-content">
+        <h3>{{ course.title }}</h3>
+        <p>Creado por: {{ course.creatorName }}</p>
+        <p>{{ course.description }}</p>
+        <div class="button-group">
+          <button mat-raised-button color="primary" (click)="course.id !== undefined ? approveCourse(course.id) : null">Aprobar</button>
+          <button mat-raised-button color="warn" (click)="course.id !== undefined ? rejectCourse(course.id) : null">Rechazar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
